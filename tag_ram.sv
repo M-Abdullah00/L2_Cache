@@ -83,10 +83,10 @@ module tag_ram (
             // so next victim selection will not pick the recently used way
             if (plru_update_en) begin
                 case (plru_way_used)
-                    2'd0: plru[plru_index] <= {1'b0, 1'b1, plru[plru_index][0]};
-                    2'd1: plru[plru_index] <= {1'b0, 1'b0, plru[plru_index][0]};
-                    2'd2: plru[plru_index] <= {1'b1, plru[plru_index][1], 1'b1};
-                    2'd3: plru[plru_index] <= {1'b1, plru[plru_index][1], 1'b0};
+                    2'd0: plru[plru_index] <= {1'b1, 1'b0, plru[plru_index][0]};
+                    2'd1: plru[plru_index] <= {1'b1, 1'b1, plru[plru_index][0]};
+                    2'd2: plru[plru_index] <= {1'b0, plru[plru_index][1], 1'b0};
+                    2'd3: plru[plru_index] <= {1'b0, plru[plru_index][1], 1'b1};
                     default: ;
                 endcase
             end
